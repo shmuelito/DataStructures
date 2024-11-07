@@ -7,9 +7,9 @@ typedef struct LinkedList
 	LinkedList* next;
 }LinkedList;
 
-LinkedList* crateLinkedList(int value);
+LinkedList* createLinkedList(int value);
 void addNode(LinkedList* head, int value);
 void printLinkedList(LinkedList* head);
-LinkedList* deleteHeadNode(LinkedList* head);
+LinkedList* deleteNode(LinkedList* head);
 
 #endif

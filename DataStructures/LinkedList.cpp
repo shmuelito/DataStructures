@@ -14,11 +14,11 @@ void addNode(LinkedList* head, int value)
 {
     LinkedList* newLinkedList = createLinkedList(value);
     LinkedList* temp = head;
-    while (temp->next)
+    while (temp)
     {
         temp = temp->next;
     }
-    temp->next = newLinkedList;
+    temp = newLinkedList;
 }
 
 void printLinkedList(LinkedList* head)
@@ -31,13 +31,13 @@ void printLinkedList(LinkedList* head)
     }
 }
 
-LinkedList* deleteHeadNode(LinkedList* head)
+LinkedList* deleteNode(LinkedList* head)
 {
     if (head == NULL)  
         return NULL;
 
     LinkedList* temp = head;
-    head = head->next;  
+    head = temp->next;
     delete temp;        
     return head;
 }
