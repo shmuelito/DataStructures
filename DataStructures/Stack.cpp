@@ -7,7 +7,7 @@
 void initStack(Stack* s)
 {
 	s->head = new LinkedList;
-	s->head = NULL;
+	s->head->next = NULL;
 }
 
 void push(Stack* s, unsigned int element)
@@ -21,13 +21,18 @@ int pop(Stack* s)
 	LinkedList* temp = s->head;
 	LinkedList* prev = NULL;
 
+	if (isEmpty(s))
+	{
+		return -1;
+	}
+
 	while (temp->next)
 	{
 		prev = temp;
 		temp = temp->next;
 	}
 
-	value = temp->value;
+	value = temp->num;
 	deleteNode(temp);
 	prev->next = NULL;
 
@@ -49,5 +54,9 @@ void cleanStack(Stack* s)
 
 bool isEmpty(Stack* s)
 {
-	return(s->head->next == NULL || s->head == NULL);
+	if (s->head->next == NULL || s->head == NULL)
+	{
+		return true;
+	}
+	return false;
 }

@@ -2,33 +2,23 @@
 #include <iostream>
 
 
-LinkedList* createLinkedList(int value)
+LinkedList* createNode(int num)
 {
     LinkedList* newLinkedList = new LinkedList;
-    newLinkedList->value = value;
+    newLinkedList->num = num;
     newLinkedList->next = NULL;
     return newLinkedList;
 }
 
-void addNode(LinkedList* head, int value)
+void addNode(LinkedList* head, int num)
 {
-    LinkedList* newLinkedList = createLinkedList(value);
+    LinkedList* newLinkedList = createNode(num);
     LinkedList* temp = head;
-    while (temp)
+    while (temp->next)
     {
         temp = temp->next;
     }
-    temp = newLinkedList;
-}
-
-void printLinkedList(LinkedList* head)
-{
-    LinkedList* temp = head;
-    while (temp)
-    {
-        std::cout << temp->value << std::endl;
-        temp = temp->next;
-    }
+    temp->next = newLinkedList;
 }
 
 LinkedList* deleteNode(LinkedList* head)
@@ -38,7 +28,8 @@ LinkedList* deleteNode(LinkedList* head)
 
     LinkedList* temp = head;
     head = temp->next;
-    delete temp;        
+    delete temp;
+
     return head;
 }
 

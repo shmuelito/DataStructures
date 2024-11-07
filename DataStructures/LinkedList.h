@@ -3,13 +3,12 @@
 
 typedef struct LinkedList
 {
-	int value;
+	int num;
 	LinkedList* next;
 }LinkedList;
 
-LinkedList* createLinkedList(int value);
-void addNode(LinkedList* head, int value);
-void printLinkedList(LinkedList* head);
-LinkedList* deleteNode(LinkedList* head);
+LinkedList* createNode(int num);
+void addNode(LinkedList* head, int num);
+LinkedList* deleteNode(LinkedList* num);
 
 #endif
